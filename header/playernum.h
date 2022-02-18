@@ -1,6 +1,6 @@
 #ifndef PLAYERNUM_H
 #define PLAYERNUM_H
-#include <startwindow.h>
+#include "startwindow.h"
 #include <QDialog>
 
 namespace Ui {
@@ -8,7 +8,6 @@ class PlayerNum;
 }
 
 class PlayerInfo;
-class StartWindow;
 
 class PlayerNum : public QDialog
 {

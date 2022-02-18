@@ -1,7 +1,7 @@
-#include "startwindow.h"
+#include "../header/startwindow.h"
 #include "ui_startwindow.h"
-#include "gamewindow.h"
-#include "playernum.h"
+#include "../header/gamewindow.h"
+#include "../header/playernum.h"
 
 
 #include <QWidget>

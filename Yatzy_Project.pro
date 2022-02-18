@@ -12,22 +12,22 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    startwindow.cpp \
-    gamewindow.cpp \
-    playerinfo.cpp\
-    playernum.cpp
+    source/startwindow.cpp \
+    source/gamewindow.cpp \
+    source/playerinfo.cpp\
+    source/playernum.cpp
 
 HEADERS += \
-    startwindow.h\
-    gamewindow.h\
-    playerinfo.h\
-    playernum.h
+    header/startwindow.h\
+    header/gamewindow.h\
+    header/playerinfo.h\
+    header/playernum.h
 
 FORMS += \
-    startwindow.ui\
-    gamewindow.ui\
-    playerinfo.ui\
-    playernum.ui
+    form/startwindow.ui\
+    form/gamewindow.ui\
+    form/playerinfo.ui\
+    form/playernum.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

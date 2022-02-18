@@ -1,7 +1,7 @@
-#include "playernum.h"
+#include "../header/playernum.h"
 #include "ui_playernum.h"
-#include "playerinfo.h"
-#include "startwindow.h"
+#include "../header/playerinfo.h"
+#include "../header/startwindow.h"
 
 #include <QDialogButtonBox>
 

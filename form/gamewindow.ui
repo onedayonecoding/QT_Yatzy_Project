@@ -984,7 +984,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="ones_point_18">
+       <widget class="QLabel" name="playername">
         <property name="font">
          <font>
           <pointsize>15</pointsize>

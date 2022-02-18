@@ -1,6 +1,7 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
+#include "../header/playerinfo.h"
 #include <QWidget>
 
 
@@ -19,8 +20,14 @@ public:
     ~GameWindow();
 
 public slots:
+   void init();
+
    void clickStartWindow();
+   void changewindowcolor();
+
+   void clickScore();
    void clickRoll();
+
    void clickdice1();
    void clickdice2();
    void clickdice3();
@@ -45,6 +52,13 @@ private:
     bool dicechange4=true;
     bool dicechange5=true;
 
+    // game turn
+    int rollturn=2;
+    int playerturn=1;
 
+    //css style
+    QString buttonborder = "QPushButton {border: 3px solid}";
+    QString buttonreset = "QPushButton {border: 0px solid}";
+    QString windowcolor;
 };
 #endif // GAMEWINDOW_H
