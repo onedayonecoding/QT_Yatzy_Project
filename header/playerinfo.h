@@ -36,6 +36,7 @@ private:
     GameWindow *gamewindow;
     StartWindow *startwindow;
     int playercount = 1;
+
 };
 
 #endif // PLAYERINFO_H

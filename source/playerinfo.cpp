@@ -33,8 +33,11 @@ void PlayerInfo::submit(){
         qDebug()<<"submit1";
         p1_info[0]=ui->playername->text();
         p1_info[1]=ui->playercolor->currentText();
+
+        gamewindow->init();
         ui->playername->clear();
         playercount++;
+
         if(playercount > PlayerNum::playernumber){
             gamewindow->show();
         }else{
