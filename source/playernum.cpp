@@ -1,6 +1,6 @@
 #include "../header/playernum.h"
 #include "ui_playernum.h"
-#include "../header/playerinfo.h"
+#include "../header/playersetting.h"
 #include "../header/startwindow.h"
 
 #include <QDialogButtonBox>
@@ -10,7 +10,7 @@ PlayerNum::PlayerNum(QWidget *parent) :
     ui(new Ui::PlayerNum)
 {
     ui->setupUi(this);
-    playerinfo = new PlayerInfo;
+    playersetting = new PlayerSetting;
 
     connect(ui->buttonBox,SIGNAL(accepted()),this,SLOT(submit()));
     connect(ui->buttonBox,SIGNAL(rejected()),this,SLOT(cancle()));
@@ -23,8 +23,8 @@ PlayerNum::~PlayerNum()
 
 void PlayerNum::submit(){
     playernumber = ui->playernumber->value();
-    playerinfo->show();
+    playersetting->show();
 }
-//void PlayerNum::cancle()
 
+//void PlayerNum::cancle()
 int PlayerNum::playernumber=0;

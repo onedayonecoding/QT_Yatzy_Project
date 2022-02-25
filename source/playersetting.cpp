@@ -1,5 +1,5 @@
-#include "../header/playerinfo.h"
-#include "ui_playerinfo.h"
+#include "../header/playersetting.h"
+#include "ui_playersetting.h"
 #include "../header/playernum.h"
 #include "../header/gamewindow.h"
 #include "../header/startwindow.h"
@@ -8,9 +8,9 @@
 #include <QDebug>
 #include <QPushButton>
 
-PlayerInfo::PlayerInfo(QWidget *parent) :
+PlayerSetting::PlayerSetting(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::PlayerInfo)
+    ui(new Ui::PlayerSetting)
 {
     ui->setupUi(this);
 
@@ -23,12 +23,12 @@ PlayerInfo::PlayerInfo(QWidget *parent) :
     connect(ui->buttonBox,SIGNAL(rejected()),this,SLOT(cancle()));
 }
 
-PlayerInfo::~PlayerInfo()
+PlayerSetting::~PlayerSetting()
 {
     delete ui;
 }
 
-void PlayerInfo::submit(){
+void PlayerSetting::submit(){
     if(playercount==1){
         qDebug()<<"submit1";
         p1_info[0]=ui->playername->text();
@@ -83,13 +83,9 @@ void PlayerInfo::submit(){
 
 }
 
-void PlayerInfo::cancle(){
+void PlayerSetting::cancle(){
     startwindow = new StartWindow;
     startwindow->show();
 }
 
 // static value initialize
-QString PlayerInfo::p1_info[2] = {NULL,NULL};
-QString PlayerInfo::p2_info[2] = {NULL,NULL};
-QString PlayerInfo::p3_info[2] = {NULL,NULL};
-QString PlayerInfo::p4_info[2] = {NULL,NULL};

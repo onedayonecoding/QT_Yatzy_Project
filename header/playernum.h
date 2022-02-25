@@ -7,7 +7,7 @@ namespace Ui {
 class PlayerNum;
 }
 
-class PlayerInfo;
+class PlayerSetting;
 
 class PlayerNum : public QDialog
 {
@@ -28,7 +28,7 @@ public slots:
 
 private:
     Ui::PlayerNum *ui;
-    PlayerInfo *playerinfo;
+    PlayerSetting *playersetting;
     StartWindow *startwindow;
 };
 

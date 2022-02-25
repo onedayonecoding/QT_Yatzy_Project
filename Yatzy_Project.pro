@@ -12,21 +12,22 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
+    source/playersetting.cpp \
     source/startwindow.cpp \
     source/gamewindow.cpp \
-    source/playerinfo.cpp\
     source/playernum.cpp
 
 HEADERS += \
+    header/playerinfo.h \
+    header/playersetting.h \
     header/startwindow.h\
     header/gamewindow.h\
-    header/playerinfo.h\
     header/playernum.h
 
 FORMS += \
+    form/playersetting.ui \
     form/startwindow.ui\
     form/gamewindow.ui\
-    form/playerinfo.ui\
     form/playernum.ui
 
 # Default rules for deployment.

@@ -12,7 +12,7 @@ QT_END_NAMESPACE
 
 class GameWindow;
 class PlayerNum;
-class PlayerInfo;
+class PlayerSetting;
 
 class StartWindow : public QWidget
 {
@@ -33,6 +33,6 @@ private:
     GameWindow *gamewindow;
     PlayerNum *playernum;
     QWebEngineView *rollbook;
-    PlayerInfo *playerinfo;
+    PlayerSetting *playersetting;
 };
 #endif // STARTWINDOW_H

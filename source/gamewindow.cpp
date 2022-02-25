@@ -1,7 +1,7 @@
 #include "../header/gamewindow.h"
 #include "ui_gamewindow.h"
 #include "../header/startwindow.h"
-#include "../header/playerinfo.h"
+#include "../header/playersetting.h"
 
 #include <QRandomGenerator>
 #include <QDebug>
@@ -20,19 +20,33 @@ GameWindow::GameWindow(QWidget *parent)
         dice[i]->move(650,120+62*i);
     }
 
-
+    ui->score_button->setEnabled(false);
     connect(ui->exit_button,SIGNAL(clicked()),SLOT(close()));
     connect(ui->start_button,SIGNAL(clicked()),SLOT(clickStartWindow()));
     connect(ui->roll_button,SIGNAL(clicked()),SLOT(clickRoll()));
 
     // dice button connect
-    connect(dice[0],SIGNAL(clicked()),SLOT(clickdice1()));
-    connect(dice[1],SIGNAL(clicked()),SLOT(clickdice2()));
-    connect(dice[2],SIGNAL(clicked()),SLOT(clickdice3()));
-    connect(dice[3],SIGNAL(clicked()),SLOT(clickdice4()));
-    connect(dice[4],SIGNAL(clicked()),SLOT(clickdice5()));
+    connect(dice[0],SIGNAL(clicked()),SLOT(clickDice1()));
+    connect(dice[1],SIGNAL(clicked()),SLOT(clickDice2()));
+    connect(dice[2],SIGNAL(clicked()),SLOT(clickDice3()));
+    connect(dice[3],SIGNAL(clicked()),SLOT(clickDice4()));
+    connect(dice[4],SIGNAL(clicked()),SLOT(clickDice5()));
 
     connect(ui->score_button,SIGNAL(clicked()),SLOT(clickScore()));
+
+    connect(ui->ones_point,SIGNAL(clicked()),SLOT());
+    connect(ui->twos_point,SIGNAL(clicked()),SLOT());
+    connect(ui->threes_point,SIGNAL(clicked()),SLOT());
+    connect(ui->fours_point,SIGNAL(clicked()),SLOT());
+    connect(ui->fives_point,SIGNAL(clicked()),SLOT());
+    connect(ui->sixs_point,SIGNAL(clicked()),SLOT());
+    connect(ui->triple_point,SIGNAL(clicked()),SLOT());
+    connect(ui->fourth_point,SIGNAL(clicked()),SLOT());
+    connect(ui->FH_point,SIGNAL(clicked()),SLOT());
+    connect(ui->small_point,SIGNAL(clicked()),SLOT());
+    connect(ui->large_point,SIGNAL(clicked()),SLOT());
+    connect(ui->yatzy_point,SIGNAL(clicked()),SLOT());
+    connect(ui->chance_point,SIGNAL(clicked()),SLOT());
 }
 
 GameWindow::~GameWindow()
@@ -42,8 +56,8 @@ GameWindow::~GameWindow()
 }
 
 void GameWindow::init(){
-    windowcolor = PlayerInfo::p1_info[1];
-    ui->playername->setText(PlayerInfo::p1_info[0]);
+    windowcolor = playersetting->p1_info[1];
+    ui->playername->setText(playersetting->p1_info[0]);
     changewindowcolor();
 }
 
@@ -113,17 +127,17 @@ void GameWindow::clickScore(){
     else playerturn++;
 
     if (playerturn==1){
-        windowcolor = PlayerInfo::p1_info[1];
-        ui->playername->setText(PlayerInfo::p1_info[0]);
+        windowcolor = playersetting->p1_info[1];
+        ui->playername->setText(playersetting->p1_info[0]);
     }else if(playerturn==2){
-        windowcolor = PlayerInfo::p2_info[1];
-        ui->playername->setText(PlayerInfo::p2_info[0]);
+        windowcolor = playersetting->p2_info[1];
+        ui->playername->setText(playersetting->p2_info[0]);
     }else if(playerturn==3){
-        windowcolor = PlayerInfo::p3_info[1];
-        ui->playername->setText(PlayerInfo::p3_info[0]);
+        windowcolor = playersetting->p3_info[1];
+        ui->playername->setText(playersetting->p3_info[0]);
     }else{
-        windowcolor = PlayerInfo::p4_info[1];
-        ui->playername->setText(PlayerInfo::p4_info[0]);
+        windowcolor = playersetting->p4_info[1];
+        ui->playername->setText(playersetting->p4_info[0]);
     }
 
     qDebug()<<"windowcolor : "<<windowcolor;
@@ -133,7 +147,7 @@ void GameWindow::clickScore(){
 
 
 
-void GameWindow::clickdice1(){
+void GameWindow::clickDice1(){
     if(dicechange[0]==true){
         dicechange[0]=false;
         dice[0]->setStyleSheet(buttonborder);
@@ -142,7 +156,7 @@ void GameWindow::clickdice1(){
         dicechange[0]=true;
     }
 }
-void GameWindow::clickdice2(){
+void GameWindow::clickDice2(){
     if(dicechange[1]==true){
         dicechange[1]=false;
         dice[1]->setStyleSheet(buttonborder);
@@ -151,7 +165,7 @@ void GameWindow::clickdice2(){
         dicechange[1]=true;
     }
 }
-void GameWindow::clickdice3(){
+void GameWindow::clickDice3(){
     if(dicechange[2]==true){
         dicechange[2]=false;
         dice[2]->setStyleSheet(buttonborder);
@@ -160,7 +174,7 @@ void GameWindow::clickdice3(){
         dicechange[2]=true;
     }
 }
-void GameWindow::clickdice4(){
+void GameWindow::clickDice4(){
     if(dicechange[3]==true){
         dicechange[3]=false;
         dice[3]->setStyleSheet(buttonborder);
@@ -169,7 +183,7 @@ void GameWindow::clickdice4(){
         dicechange[3]=true;
     }
 }
-void GameWindow::clickdice5(){
+void GameWindow::clickDice5(){
     if(dicechange[4]==true){
         dicechange[4]=false;
         dice[4]->setStyleSheet(buttonborder);
@@ -215,3 +229,6 @@ bool GameWindow::straight_bool(int num){
     return false;
 }
 
+void GameWindow::scorebool(){
+    (score_bool)? score_bool=false : score_bool=true;
+}

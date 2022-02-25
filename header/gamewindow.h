@@ -1,7 +1,7 @@
 #ifndef GAMEWINDOW_H
 #define GAMEWINDOW_H
 
-#include "../header/playerinfo.h"
+#include "../header/playersetting.h"
 #include <QWidget>
 #include <QPushButton>
 #include <QVector>
@@ -29,15 +29,18 @@ public slots:
    void clickScore();
    void clickRoll();
 
-   void clickdice1();
-   void clickdice2();
-   void clickdice3();
-   void clickdice4();
-   void clickdice5();
+   void clickDice1();
+   void clickDice2();
+   void clickDice3();
+   void clickDice4();
+   void clickDice5();
+
+   void scorebool();
 
 private:
     Ui::GameWindow *ui;
     StartWindow *startwindow;
+    PlayerSetting *playersetting;
 
     //dices button
     QPushButton *dice[5];
@@ -71,6 +74,9 @@ private:
     bool count_bool(int num);
     bool fullhouse_bool();
     bool straight_bool(int num);
+
+    // score bool
+    bool score_bool = false;
 
 
 signals:
